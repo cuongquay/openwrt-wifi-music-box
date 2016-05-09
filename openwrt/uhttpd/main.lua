@@ -37,7 +37,7 @@ local function info()
 	uhttpd.send("Status: 200 OK\r\n")
 	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
 	uhttpd.send("Content-Type: application/json\r\n\r\n")
-	uhttpd.send("{ \"WiFiOneR\": { \"name\": \"" .. string.gsub(command("uci get system.@system[0].hostname"), "\n", "") .. "\", \"volume\": \"" .. string.gsub(command("amixer get PCM  | egrep -o \"[0-9]+%\""), "\n", "") .. "\", \"version\": \"v1\", \"uid\": \"" .. string.gsub(command("cat /sys/class/net/eth0/address"), "\n", "") .. "\", \"service\": \"audio\", \"avatar\": \"images/speaker-double.png\" }}")
+	uhttpd.send("{ \"OpenWRT\": { \"name\": \"" .. string.gsub(command("uci get system.@system[0].hostname"), "\n", "") .. "\", \"volume\": \"" .. string.gsub(command("amixer get PCM  | egrep -o \"[0-9]+%\""), "\n", "") .. "\", \"version\": \"v1\", \"uid\": \"" .. string.gsub(command("cat /sys/class/net/eth0/address"), "\n", "") .. "\", \"service\": \"audio\", \"avatar\": \"images/speaker-double.png\" }}")
 end
 
 function handle_request(env)	
