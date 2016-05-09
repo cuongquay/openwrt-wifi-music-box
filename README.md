@@ -8,7 +8,7 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 
 **Firmware**
 
-1. [Openwrt SysUpgrade Firmware for TL-MR3020](https://github.com/cuongquay/project-wifi-music-box/blob/master/openwrt/firmware/openwrt-ar71xx-generic-tl-mr3020-v1-squashfs-sysupgrade.bin) which is built to support USB 1.1, Sound Module and MadPlay only (4MB Flash Memory Size). You can find the INSTRUCTION of HOWTO flashing OpenWRT by this link https://wiki.openwrt.org/doc/howto/generic.flashing
+1. [Openwrt SysUpgrade Firmware for TL-MR3020](https://github.com/cuongquay/project-wifi-music-box/blob/master/firmware/openwrt-ar71xx-generic-tl-mr3020-v1-squashfs-sysupgrade.bin) which is built to support USB 1.1, Sound Module and MadPlay only (4MB Flash Memory Size). You can find the INSTRUCTION of HOWTO flashing OpenWRT by this link https://wiki.openwrt.org/doc/howto/generic.flashing
 2. Configure uhttpd web server with lua support to be able to expose REST API out of the box to the mobile application.
 
 *After flashing TL-MR3040 by OpenWRT firmware, SSH into the system and modify the uhttpd configuration as follows:*
@@ -26,10 +26,10 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 	option lua_handler      /www/api/main.lua
 ```    
 
-- Copy the files from [openwrt/uhttpd/](https://github.com/cuongquay/project-wifi-music-box/tree/master/openwrt/uhttpd) into /www/api/ of the TL-MR3020 system.
+- Copy the files from [uhttpd/](https://github.com/cuongquay/project-wifi-music-box/tree/master/uhttpd) into /www/api/ of the TL-MR3020 system.
 
 ```javascript
-	$ scp openwrt/uhttpd/* root@OpenWRT:/www/api/
+	$ scp uhttpd/* root@OpenWRT:/www/api/
 ```
 
 - Restart the uhttpd server 
