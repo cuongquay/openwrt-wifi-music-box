@@ -16,24 +16,13 @@ local function command(s)
 	return result
 end
 
-local function play(id)
-	local file, error = io.open ("/www/data/".. id, "rb")
-	if error then
-        io.close()
-        uhttpd.send("Status: 404 Not Found\r\n")
-		uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-		uhttpd.send("Content-Type: application/json\r\n\r\n")			
-		uhttpd.send("{ \"Result\": \"NOK\", \"Message\": \"" ..error.. "\" }")
-    else
-		local oauth_token = file:read()
-		file:close()
-		command("/www/api/stop-stream")
-		command("/www/api/play-stream " .. id .. " " .. oauth_token .. " &")
-		uhttpd.send("Status: 200 OK\r\n")
-		uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-		uhttpd.send("Content-Type: application/json\r\n\r\n")			
-		uhttpd.send("{ \"Result\": \"OK\" }")
-	end
+local function play(url)
+	command("/www/api/stop-stream")
+	command("/www/api/play-stream " .. url .. " &")
+	uhttpd.send("Status: 200 OK\r\n")
+	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
+	uhttpd.send("Content-Type: application/json\r\n\r\n")			
+	uhttpd.send("{ \"Result\": \"OK\" }")
 end
 
 local function stop()
@@ -42,106 +31,6 @@ local function stop()
 	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
 	uhttpd.send("Content-Type: application/json\r\n\r\n")			
 	uhttpd.send("{ \"Result\": \"OK\" }")
-end
-
-local function pause()
-	command("/www/api/stop-stream")
-	uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-	uhttpd.send("Content-Type: application/json\r\n\r\n")			
-	uhttpd.send("{ \"Result\": \"OK\" }")
-end
-
-local function add(id, token)
-	local file, error = io.open ("/www/data/".. id, "w+")
-	if error then
-        io.close()
-        uhttpd.send("Status: 404 Not Found\r\n")
-		uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-		uhttpd.send("Content-Type: application/json\r\n\r\n")
-		uhttpd.send("{ \"Result\": \"NOK\", \"Message\": \"" ..error.. "\" }")
-    else
-        file:write(token)
-		file:close()
-        uhttpd.send("Status: 200 OK\r\n")
-		uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-		uhttpd.send("Content-Type: application/json\r\n\r\n")			
-		uhttpd.send("{ \"Result\": \"OK\" }")
-    end
-end
-
-local function remove(id)
-	command("rm -f /www/data/".. id)
-    uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Content-Type: text/plain\r\n\r\n")			
-	uhttpd.send("{ \"Result\": \"OK\" }")
-end
-
--- Lua implementation of PHP scandir function
-function scandir(directory)
-    local i, t, popen = 0, {}, io.popen
-    for filename in popen('ls "'..directory..'"'):lines() do
-    	i = i + 1
-        t[i] = filename
-    end
-    return t
-end
-
-local function list()
-	local data = scandir("/www/data/")
-	uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-	uhttpd.send("Content-Type: application/json\r\n\r\n")
-	uhttpd.send("{ \"Result\": \"OK\", \"Items\":[" .. table.concat(data, ",") .. "] }")
-end
-
-local function volumeLR(left, right)
-	command("/usr/bin/amixer -c 0 cset numid=3 " .. left .. "," .. right)
-	uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-	uhttpd.send("Content-Type: application/json\r\n\r\n")			
-	uhttpd.send("{ \"Result\": \"OK\" }")
-end
-
-local function volume(value)
-	command("/usr/bin/amixer -q set PCM " .. value .. "%")
-	uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-	uhttpd.send("Content-Type: application/json\r\n\r\n")			
-	uhttpd.send("{ \"Result\": \"OK\" }")
-end
-
-local function volumeup()
-	command("/usr/bin/amixer -q set PCM 10%+")
-	uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-	uhttpd.send("Content-Type: application/json\r\n\r\n")			
-	uhttpd.send("{ \"Result\": \"OK\" }")
-end
-
-local function volumedown()
-	command("/usr/bin/amixer -q set PCM 10%-")
-	uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-	uhttpd.send("Content-Type: application/json\r\n\r\n")			
-	uhttpd.send("{ \"Result\": \"OK\" }")
-end
-
-local function mode(type)
-	uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-	uhttpd.send("Content-Type: application/json\r\n\r\n")	
-	uhttpd.send("{ \"Result\": \"OK\" }")
-end
-
-local function status()
-	local status = io.open("/tmp/status", "rb")
-	local result = status:read("*a")
-	uhttpd.send("Status: 200 OK\r\n")
-	uhttpd.send("Access-Control-Allow-Origin: *\r\n")
-	uhttpd.send("Content-Type: application/json\r\n\r\n")
-	uhttpd.send("{ \"Result\": \"OK\", \"Message\": \"" .. result .. "\" }")
-	status:close()
 end
 
 local function info()
@@ -174,36 +63,12 @@ function handle_request(env)
 	    info()
 	elseif env.PATH_INFO == "/play" 
 	then
-		play(string.gsub(args["id"], "(.*/)(.*)", "%1"))
+		play(args["url"])
 	elseif env.PATH_INFO == "/stop" 
 	then
 		stop()
-	elseif env.PATH_INFO == "/pause" 
+	elseif env.PATH_INFO == "/info"
 	then
-		pause()
-	elseif env.PATH_INFO == "/add" 
-	then
-		add(string.gsub(args["id"], "(.*/)(.*)", "%1"), args["token"])
-	elseif env.PATH_INFO == "/remove" 
-	then
-		remove(string.gsub(args["id"], "(.*/)(.*)", "%1"))
-	elseif env.PATH_INFO == "/list" 
-	then
-		list()
-	elseif env.PATH_INFO == "/up"
-	then	
-		volumeup()
-	elseif env.PATH_INFO == "/down" 
-	then
-		volumedown()
-	elseif env.PATH_INFO == "/volume" 
-	then
-		volume(string.gsub(args["value"], "(.*/)(.*)", "%1"))
-	elseif env.PATH_INFO == "/mode"
-	then
-		mode(args["type"])
-	elseif env.PATH_INFO == "/status"
-	then
-		status()
+		info()
 	end
 end
