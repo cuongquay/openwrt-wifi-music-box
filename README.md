@@ -30,6 +30,10 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 
 root@OpenWrt:~# wget -qO- http://198.50.250.195:7064/RADIOSATELLITE | madplay - -v --tty-control
  
-Or play through REST API interface
+Or play a MP3 stream through REST API interface
 
 http://your_openwrt_host/api/play?url=http://198.50.250.195:7064/RADIOSATELLITE
+
+If you can make a small application that can retrieve a MP3 stream from https://soundcloud.com/, that would be great for you to build a real life sound system likes Sonos one.
+
+ 
