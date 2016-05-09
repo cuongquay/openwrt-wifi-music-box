@@ -14,16 +14,12 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 *After flashing TL-MR3040 by OpenWRT firmware, SSH into the system and modify the uhttpd configuration as follows:*
 
 - Open file with VIM editor $ vi /etc/config/uhttpd
-- Update the configuration with
+- Update the configuration with the following lines
  
-	`
-	config 'uhttpd' 'main'<br />
-        option 'listen_http' '80'<br />
-        option 'home'        '/www'<br />
-		...<br />
-		option lua_prefix       /api<br />
-        option lua_handler      /www/main.lua<br />
-    `    
+`
+option lua_prefix       /api
+option lua_handler      /www/main.lua
+`    
 **Application**
  
 
