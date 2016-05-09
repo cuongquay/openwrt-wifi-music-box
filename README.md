@@ -4,7 +4,7 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 **Hardware**
 
 1. TPLink Router TL-MR3020 (http://www.tp-link.com/iq/products/details/cat-14_TL-MR3020.html)
-2. USB to Audio Converter (http://www.amazon.com/USB-DAC-PCM2704-Optical-Converter/dp/B0093KZTEA)
+2. USB to Audio Converter (http://www.ebay.com/itm/PCM2704-USB-DAC-to-S-PDIF-Sound-Card-Decoder-Board-/191168663297)
 
 **Firmware**
 
