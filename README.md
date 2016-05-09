@@ -17,10 +17,11 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 - Update the configuration with the following lines
  
 `
-option lua_prefix       /api
+	option lua_prefix       /api
 
-option lua_handler      /www/main.lua
+	option lua_handler      /www/main.lua
 `    
+
 **Application**
  
 
