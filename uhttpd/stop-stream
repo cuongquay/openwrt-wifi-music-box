@@ -1,0 +1,4 @@
+#!/bin/sh
+killall madplay
+rmmod snd_usb_audio
+modprobe snd_usb_audio
