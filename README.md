@@ -17,17 +17,12 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 - Update the configuration with
  
 	`
-	config 'uhttpd' 'main'
-	
-        option 'listen_http' '80'
-        
-        option 'home'        '/www'
-        
-		...
-		
-		option lua_prefix       /api
-		
-        option lua_handler      /www/main.lua
+	config 'uhttpd' 'main'<br />
+        option 'listen_http' '80'<br />
+        option 'home'        '/www'<br />
+		...<br />
+		option lua_prefix       /api<br />
+        option lua_handler      /www/main.lua<br />
     `    
 **Application**
  
