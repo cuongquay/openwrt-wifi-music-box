@@ -27,6 +27,11 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 ```    
 
 - Copy the files from [openwrt/uhttpd/](https://github.com/cuongquay/project-wifi-music-box/tree/master/openwrt/uhttpd) into /www/api/ of the TL-MR3020 system.
+
+```javascript
+	$ scp openwrt/uhttpd/* root@OpenWRT:/www/api/
+```
+
 - Restart the uhttpd server 
 
 ```javascript
