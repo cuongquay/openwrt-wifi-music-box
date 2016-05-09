@@ -16,11 +16,11 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 - Open file with VIM editor $ vi /etc/config/uhttpd
 - Update the configuration with the following lines
  
-`
+```javascript
 	option lua_prefix       /api
 
 	option lua_handler      /www/main.lua
-`    
+```    
 
 **Application**
  
