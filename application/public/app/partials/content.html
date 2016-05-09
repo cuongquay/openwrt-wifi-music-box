@@ -1,6 +1,0 @@
-<!-- is there a better way to repeat without actually affecting the page? -->
-<div class="row-fluid ng-scope" ng-controller="RowCtrl" ng-repeat="(row_name, row) in contentSrv.current.rows" ng-style="row_style(row)" on-finish-render>
-	<div ng-repeat="(name, panel) in row.panels|filter:isPanel" ng-hide="panel.hide" style="padding-left:0px;padding-right:0px">
-		<ng-panel type="panel.type" ng-cloak></ng-panel>
-	</div>
-</div>

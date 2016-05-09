@@ -1,8 +1,0 @@
-sudo yum install epel-release -y
-sudo yum install nodejs -y
-sudo yum install npm -y
-sudo npm install pm2 -g --unsafe-perm
-sudo pm2 startup centos
-sudo pm2 save
-
-

@@ -1,1 +1,0 @@
-OPTIONS='--authorize-url="_OAUTH2_AUTH_" --token-url="_OAUTH2_TOKEN_" --redirect-url="_OAUTH2_CALLBACK_" --oauth2-apps-domain="_APPS_DOMAIN_" --upstream="_UPSTREAM_URLS_" --cookie-secret="_APPS_COOKIES_" --client-id="_APPS_CLIENT_ID_" --client-secret="_APPS_CLIENT_SECRET_"'
