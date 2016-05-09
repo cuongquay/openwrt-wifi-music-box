@@ -1,0 +1,27 @@
+<div ng-init="setup_colorpicker_editform(panel)">
+	<div class="editor-row">
+		<div class="section">
+			<h5>Parameters</h5>
+			<div class="editor-option">
+				<label class="small">Field</label>
+				<input type="text" class="input-medium" bs-typeahead="fields.list" ng-model="panel.field" ng-change="set_refresh(true)">
+			</div>
+		</div>
+	</div>
+	<div class="editor-row">
+		<div class="section">
+			<h5>Density Range Options</h5>
+			<div class="editor-option">
+				<label class="small">From</label>
+				<input type="number" class="input-small" ng-model="panel.density_min" min="0" ng-required="true" ng-change="set_refresh(true)" />
+				<input type='text' class="edit_colormin" />				
+			</div>
+			<div class="editor-option">
+				<label class="small">To</label>
+				<input type="number" class="input-small" ng-model="panel.density_max" min="{{panel.density_min}}" ng-required="true" ng-change="set_refresh(true)">
+				<input type='text' class="edit_colormax" />
+			</div>
+		</div>
+	</div>
+</div>
+

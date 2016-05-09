@@ -1,0 +1,45 @@
+{
+	"name": "default",
+	"rows": [
+		{
+			"panels": [
+				{
+					"type": "navigator",
+					"title": "{@USER}'s",
+					"panels": [
+						{
+							"type": "follow",
+							"mode": "all",
+							"title": "All Friends",
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"partition": 5,
+							"limit": 40
+						}, {
+							"type": "playlist",
+							"title": "Playlists",
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"partition": 5,
+							"limit": 40
+						}, {
+							"type": "tracks",
+							"title": "Tracks",
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"partition": 5,
+							"limit": 40
+						}, {
+							"type": "stream",
+							"title": "Stream",
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"partition": 5,
+							"limit": 40
+						}, {
+							"type": "running",
+							"title": "Running",
+							"class": "col-sm-12 col-md-12 col-lg-12"
+						}
+					]
+				}
+			]
+		}
+	]
+}

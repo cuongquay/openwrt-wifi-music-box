@@ -1,0 +1,55 @@
+tar zfvx assets.tar.gz
+tar zfvx src.tar.gz
+rm -rf /var/www/html/assets/
+rm -rf /var/www/html/src/
+rm -rf /var/www/html/www/
+mv assets/ /var/www/html/
+mv src/ /var/www/html/
+restorecon /var/www/html/ -R
+chown root:root /var/www/html/ -R
+cd /var/www/html/
+
+TMP_FILE="/tmp/installer-temp.file"
+REVISION=$1
+VERSION="v0.1-${REVISION}"
+
+echo "SET VERSION: ${VERSION}"
+
+cat /var/www/html/src/index.html | \
+	sed -e s=0.0.0=${VERSION}=g| \
+	sed -e s=@REV@=${VERSION}=g > $TMP_FILE;
+cat $TMP_FILE > /var/www/html/src/index.html
+
+cat /var/www/html/src/app/components/require.config.js | \
+   	sed -e s=0.0.0=${VERSION}=g| \
+   	sed -e s=@REV@=${VERSION}=g > $TMP_FILE;
+cat $TMP_FILE > /var/www/html/src/app/components/require.config.js
+
+grunt dist-css --target=default
+grunt
+
+mkdir -p /var/www/html/www/
+mkdir -p /var/www/html/www/app/filters/
+cp /var/www/html/src/index.html /var/www/html/www/
+cp -R /var/www/html/src/images/ /var/www/html/www/
+cp -R /var/www/html/src/fonts/ /var/www/html/www/
+chmod 655 /var/www/html/src/images/ -R
+cp -R /var/www/html/src/app/contents/ /var/www/html/www/app/
+cp -R /var/www/html/src/app/partials/ /var/www/html/www/app/
+cp -R /var/www/html/src/app/panels/ /var/www/html/www/app/
+find /var/www/html/www/app/panels/ -name 'module.js' -delete
+cp /var/www/html/src/app/app.js /var/www/html/www/app/
+cp /var/www/html/src/js/cordova.js /var/www/html/www/
+cp /var/www/html/src/js/cordova_plugins.js /var/www/html/www/
+cp /var/www/html/src/app/controllers/all.js /var/www/html/www/app/controllers/
+cp /var/www/html/src/app/directives/all.js /var/www/html/www/app/directives/
+cp /var/www/html/src/app/factories/all.js /var/www/html/www/app/factories/
+cp /var/www/html/src/app/filters/all.js /var/www/html/www/app/filters/
+cp /var/www/html/src/app/services/all.js /var/www/html/www/app/services/
+cp /var/www/html/src/vendor/*.min.js /var/www/html/www/vendor/
+cp /var/www/html/src/vendor/angular/*.min.js /var/www/html/www/vendor/angular/
+cp /var/www/html/src/vendor/bootstrap/*.min.js /var/www/html/www/vendor/bootstrap/
+cp /var/www/html/src/vendor/elasticjs/*.min.js /var/www/html/www/vendor/elasticjs/
+cp /var/www/html/src/vendor/jquery/*.min.js /var/www/html/www/vendor/jquery/
+cp /var/www/html/src/vendor/require/*.min.js /var/www/html/www/vendor/require/
+service nginx restart

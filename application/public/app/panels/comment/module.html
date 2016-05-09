@@ -1,0 +1,25 @@
+<div ng-controller="comment" ng-init="init()">
+	<div class="row smart-form">
+		<fieldset class="animated fadeIn col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			<form enctype="multipart/form-data" method="post" name="submitCommentForm" class="ng-pristine ng-invalid ng-invalid-required">				
+				<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<label class="label font-sm">Subject</label>
+					<label class="input">
+						 <select ng-model="subject" ng-options="i.type as i.name for i in options">
+				            <option value="issue">I have got an issue</option>
+				        </select>
+					</label>
+				</section>
+				<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<label class="label font-sm">Comment</label>
+					<label class="input">
+						<textarea rows="4" cols="50" class="input-xs ng-pristine ng-animate ng-invalid ng-invalid-required" ng-model="content" required></textarea>
+					</label>
+				</section>
+				<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">					
+					<label class="label"> <a ng-click="onSubmit($event, true)" ng-href-void="" class="btn-well button"> <span class="padding-10">Submit</span></a> </label>
+				</section>
+			</form>
+		</fieldset>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+#sunburn-main {
+    max-width: 60%;
+    float:left;
+}
+
+#sunburn-sidebar {
+  float: right;
+  width: 100px;
+}
+
+#sunburn-sequence {
+  width: 500px;
+  height: 70px;
+}
+
+#sunburn-legend {
+  padding: 10px 0 0 3px;
+}
+
+#sunburn-sequence text, #sunburn-legend text {
+  font-weight: 600;
+  fill: #fff;
+}
+
+#sunburn-chart {
+  position: relative;
+}
+
+#sunburn-chart path {
+  stroke: #fff;
+}
+
+div.loading {
+    width: 98%;
+    float: right;
+    font-size: 40px;
+    padding: 20px;
+}
+

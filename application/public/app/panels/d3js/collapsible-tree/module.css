@@ -1,0 +1,152 @@
+.node {
+	cursor: pointer;
+}
+
+.node circle {
+	cursor: pointer;
+  	stroke-width: 1.5px;
+}
+
+.node text {
+	font: 10px sans-serif;
+}
+
+.link {
+	fill: none;
+	stroke: #ccc;
+	stroke-width: 1.5px;
+}
+.collapsible-tree {
+	font-size: 12px;
+}
+.collapsible-tree.tipsy {
+   position: absolute;
+   padding: 5px;
+   z-index: 100000;
+}
+.collapsible-tree .tipsy-inner {
+   background-color: rgba(255, 255, 255, 0.9);
+   max-width: 200px;
+   padding: 5px 8px 4px 8px;
+   text-align: left;
+	background: rgba(255,255,255,0.9);
+	color: #000;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	border:1px solid rgba(200,200,200,0.85);
+}
+/* Rounded corners */
+.collapsible-tree .tipsy-inner {
+   border-radius: 3px;
+   -moz-border-radius: 3px;
+   -webkit-border-radius: 3px;
+}
+.collapsible-tree h3,
+.collapsible-tree h4{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	display: block;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.collapsible-tree h4{
+	font-size: 18px;
+}
+/* Uncomment for shadow */
+/*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+
+.collapsible-tree .tipsy-arrow {
+   position: absolute;
+   width: 0;
+   height: 0;
+   line-height: 0;
+   /*border: 5px dashed #4d4d4d*/
+}
+/* Rules to colour arrows */
+.collapsible-tree .tipsy-arrow-n {
+   border-bottom-color: #4d4d4d;
+}
+.collapsible-tree .tipsy-arrow-s {
+   border-top-color: #4d4d4d;
+}
+.collapsible-tree .tipsy-arrow-e {
+   border-left-color: #4d4d4d;
+}
+.collapsible-tree .tipsy-arrow-w {
+   /*border-right-color: #4d4d4d;*/
+    width: 10px;
+    height: 13px;
+    background: url("../../../../img/tail_white.png") center left no-repeat;
+    border: 0;
+}
+.collapsible-tree.tipsy-n .tipsy-arrow {
+   top: 0px;
+   left: 50%;
+   margin-left: -5px;
+   border-bottom-style: solid;
+   border-top: none;
+   border-left-color: transparent;
+   border-right-color: transparent;
+}
+.collapsible-tree.tipsy-nw .tipsy-arrow {
+   top: 0;
+   left: 10px;
+   border-bottom-style: solid;
+   border-top: none;
+   border-left-color: transparent;
+   border-right-color: transparent;
+}
+.collapsible-tree.tipsy-ne .tipsy-arrow {
+   top: 0;
+   right: 10px;
+   border-bottom-style: solid;
+   border-top: none;
+   border-left-color: transparent;
+   border-right-color: transparent;
+}
+.collapsible-tree.tipsy-s .tipsy-arrow {
+   bottom: 0;
+   left: 50%;
+   margin-left: -5px;
+   border-top-style: solid;
+   border-bottom: none;
+   border-left-color: transparent;
+   border-right-color: transparent;
+}
+.collapsible-tree.tipsy-sw .tipsy-arrow {
+   bottom: 0;
+   left: 10px;
+   border-top-style: solid;
+   border-bottom: none;
+   border-left-color: transparent;
+   border-right-color: transparent;
+}
+.collapsible-tree.tipsy-se .tipsy-arrow {
+   bottom: 0;
+   right: 10px;
+   border-top-style: solid;
+   border-bottom: none;
+   border-left-color: transparent;
+   border-right-color: transparent;
+}
+.collapsible-tree.tipsy-e .tipsy-arrow {
+   right: 0;
+   top: 50%;
+   margin-top: -5px;
+   border-left-style: solid;
+   border-right: none;
+   border-top-color: transparent;
+   border-bottom-color: transparent;
+}
+.collapsible-tree.tipsy-w .tipsy-arrow {
+   left: 0;
+   top: 50%;
+   margin-top: -5px;
+   border-right-style: solid;
+   border-left: none;
+   border-top-color: transparent;
+   border-bottom-color: transparent;
+}
+

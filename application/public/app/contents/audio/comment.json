@@ -1,0 +1,14 @@
+{
+	"name": "default",
+	"rows": [
+		{
+			"panels": [
+				{
+					"type": "comment",
+					"title": "Comments",
+					"class": "col-sm-12 col-md-12 col-lg-12"
+				}
+			]
+		}
+	]
+}

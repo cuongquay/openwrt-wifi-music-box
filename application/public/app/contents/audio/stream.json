@@ -1,0 +1,39 @@
+{
+	"name": "default",
+	"rows": [
+		{
+			"panels": [
+				{
+					"type": "navigator",
+					"title": "{@USER}'s",
+					"panels": [
+						{
+							"type": "playlist",
+							"title": "Playlists",
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"partition": 5,
+							"limit": 40,
+							"auto": true
+						}, {
+							"type": "tracks",
+							"title": "Tracks",
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"partition": 5,
+							"limit": 40
+						}, {
+							"type": "stream",
+							"title": "Stream",
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"partition": 5,
+							"limit": 40
+						}, {
+							"type": "running",
+							"title": "Running",
+							"class": "col-sm-12 col-md-12 col-lg-12"
+						}
+					]
+				}
+			]
+		}
+	]
+}

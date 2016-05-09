@@ -1,0 +1,15 @@
+<div ng-controller='follow' ng-init="init()">	
+	<div class="row-fluid" ng-if="ready">		
+		<div class="follow-list superbox col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-5 animated fadeIn">
+			<div ng-if="items.length" ng-repeat="item in items" ng-class="{ 'superbox-list' : item.kind=='user' }" class="text-center">
+				<div ng-if="item.kind=='user'" ng-click="onFollowItemClick(item)" style="background-color: white">
+					<img ng-src="{{ item.avatar_url }}" title="{{ item.full_name }}" class="superbox-img">					
+				</div>
+				<span style="font-size: 14px">{{ item.username | limitTo : 50 : 0 }}</span>
+			</div>
+			<h5 ng-if="!items.length" class="error-box"><span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+				<a href="//soundcloud.com/people">Click here to follow someone</a>
+			</span></h5>
+		</div>
+	</div>
+</div>

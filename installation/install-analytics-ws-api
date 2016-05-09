@@ -1,0 +1,33 @@
+sudo sysctl kernel.hostname=wifioner
+
+echo "Cleaning up the existing users & applications..."
+
+sudo pkill -9 PM2
+sudo pkill -9 node
+
+if getent passwd service > /dev/null 2>&1; then
+    echo "The service user has already existed"
+else
+    sudo useradd service
+fi
+
+if getent passwd appuser > /dev/null 2>&1; then
+    echo "The appuser has already existed"
+else
+    sudo useradd -g service appuser
+fi
+sudo chown appuser:service /home/appuser/ -R
+sudo chmod 774 /home/appuser/ -R
+
+echo "Start installing..."
+
+if [[ -d "/var/dist/analytics/" ]]; then
+sudo rm -rf /var/dist/analytics/
+fi
+
+tar zfvx ~/.analytics.tar.gz
+sudo mv analytics/ /var/dist/
+sudo restorecon /var/dist/analytics/ -R
+sudo chown service:service /var/dist/analytics/ -R
+sudo runuser -l service -c 'cd /var/dist/analytics/; npm install --unsafe-perm; pm2 delete analytics; pm2 start bundle.json'
+

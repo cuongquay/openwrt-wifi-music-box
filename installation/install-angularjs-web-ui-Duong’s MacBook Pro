@@ -1,0 +1,27 @@
+tar zfvx assets.tar.gz
+tar zfvx www.tar.gz
+rm -rf /var/dist/assets/
+rm -rf /var/dist/www/
+mv assets/ /var/dist/
+mv www/ /var/dist/
+restorecon /var/dist/ -R
+chown root:root /var/dist/ -R
+cd /var/dist/
+
+TMP_FILE="/tmp/installer-temp.file"
+REVISION=$1
+VERSION="v0.1-${REVISION}"
+
+echo "SET VERSION: ${VERSION}"
+
+cat /var/dist/www/index.html | \
+	sed -e s=0.0.0=${VERSION}=g| \
+	sed -e s=@REV@=${VERSION}=g > $TMP_FILE;
+cat $TMP_FILE > /var/dist/www/index.html
+
+cat /var/dist/www/app/components/require.config.min.js | \
+   	sed -e s=0.0.0=${VERSION}=g| \
+   	sed -e s=@REV@=${VERSION}=g > $TMP_FILE;
+cat $TMP_FILE > /var/dist/www/app/components/require.config.min.js
+
+service nginx restart

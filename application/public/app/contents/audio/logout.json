@@ -1,0 +1,14 @@
+{
+	"name": "default",
+	"rows": [
+		{
+			"span": 12,
+			"type": "container",
+			"panels": [
+				{					
+					"type": "logout"
+				}
+			]
+		}
+	]
+}

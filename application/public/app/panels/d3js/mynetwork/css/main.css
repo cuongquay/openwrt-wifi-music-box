@@ -1,0 +1,956 @@
+/* ==========================================================================
+   COLOR CODES
+   ========================================================================== */
+/*
+  top light blue : #b8c4cd;
+  background light blue : #eff2f5;
+*/
+
+
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/******************
+** GLOBAL STYLES
+******************/
+
+/*div*/
+.wrapper-page{
+  width:960px;
+  float:none;
+  margin: 0 auto;
+  margin-left: 90px;
+  margin-top: -80px;
+}
+
+.icon-entypo{
+  font-family: 'Entypo', sans-serif;
+}
+
+nav a{
+  text-decoration: none;
+  color:inherit;
+}
+
+nav ul{
+  padding:0;
+}
+
+nav ul li{
+  float: left;
+}
+
+
+/***************************************
+** MODULE STYLES
+** Module :: header
+****************************************/
+
+
+/***************************************
+** MODULE STYLES
+** Section :: All;
+****************************************/
+section, article{
+  float:left;
+  clear:both;
+  width:100%;
+}
+
+
+/***************************************
+** MODULE STYLES
+** Section :: Intro and credit
+****************************************/
+#intro{
+  background: #0caeb0;
+}
+
+#wrapper-intro{
+  border-top:none;
+  height: 300px;
+  color:#fff;
+  background:url('../img/bg_beer_goodtimes.png') bottom right no-repeat;
+}
+
+#wrapper-credit{
+  display:none;
+  background:#bed735;;
+  position:absolute;
+  float:right;
+  height:500px;
+  width:500px;
+  margin-left:900px;
+  opacity:0.9;
+  padding:15px;
+  border-radius: 5px;
+
+}
+
+.close{
+  margin-top:-30px;
+  float:right;
+}
+
+#wrapper-intro p{
+  color:#cfcfcf;
+
+}
+
+#pict-intro{
+  width:100%;
+  text-align:center;
+}
+
+
+/***************************************
+** MODULE STYLES
+** Section :: BeerHue
+****************************************/
+
+#list-beerhue{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+  #list-beerhue li{
+    float:left;
+  }
+
+/***************************************
+** MODULE STYLES
+** Section :: About
+****************************************/
+
+#about{
+  background:#fafafa;
+}
+
+  #wrapper-about{
+    padding:1em 0;
+  }
+
+
+  #wrapper-about h2{
+    float:left;
+    margin:0.5em 0 0 0;
+    padding:0;
+  }
+
+  #wrapper-about p{
+    text-align:center;
+    font-family: 'OpenSans Light', sans-serif;
+    padding:0;
+
+  }
+
+  #wrapper-about p.subheading{
+    text-align: left;
+    font-family: 'OpenSans Light Italic', sans-serif;
+    padding:0 1em;
+    border-left:1px solid #bfbfbf;
+    margin:1em 0 0 3em;
+    margin:1.2em 0 0 0.5em;
+    float:left;
+  }
+
+#category{
+  min-height:400px;
+  float:left;
+  width:100%;
+  display:block;
+}
+
+/***************************************
+** MODULE Category
+** Section :: Color Selector
+****************************************/
+#btn-toggleCategory{
+  float:left;
+  margin:10px 0;
+}
+
+#list-beercategory{
+  float:left;
+  clear:both;
+  list-style:none;
+  padding:0;
+  width:60%;
+  margin:0 20%;
+}
+
+  #list-beercategory li{
+    float:left;
+/*    background:#fff;*/
+    margin:0 2px 0 0;
+    display: block; 
+    width:20px;
+    height: 20px;
+    zoom:1;
+
+
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+
+ 
+  background-clip: padding-box;
+
+  -webkit-transition: all 0.1s ease-out; 
+     -moz-transition: all 0.1s ease-out; 
+       -o-transition: all 0.1s ease-out; 
+          transition: all 0.1s ease-out; 
+
+  }
+
+    #list-beercategory span{
+      float:left;
+      clear:both;
+      width:100%;
+      text-align: center;
+      color:#999999;
+    }
+
+    #list-beercategory li:hover{
+      cursor:pointer;
+      background:#dfdfdf;
+    /*  border:1px solid #bfbfbf;*/
+      /*zoom:1.05;*/
+    }
+
+    #list-beercategory li.active{
+      background:#ebf4bd;
+    }
+
+      #list-beercategory li:hover span{
+        color:#444444;
+        font-family: 'OpenSans Semi Bold', sans-serif;
+      }
+
+
+      #list-beercategory li.active span{
+        color:#444444;
+
+        font-family: 'OpenSans Semi Bold', sans-serif;
+      }
+
+
+.less#list-beercategory li{
+  display:none;
+}
+
+
+
+.less#list-beercategory li:nth-child(10),
+.less#list-beercategory li:nth-child(20),
+.less#list-beercategory li:nth-child(40){
+  display: block; 
+  width: 136px;
+  height: 240px;
+}
+
+
+#wrapper-beerCategorySelection{
+  float:left;
+  display: none
+}
+
+  #wrapper-beerCategorySelection p{
+    float:left;
+    font-family: 'OpenSans Light Italic', sans-serif;
+  }
+
+
+#beerCategorySelection{
+  width:80px;
+  height:80px;
+  float:left;
+/*  clear:both;*/
+  display:block;
+  background:#fff;
+  margin:2em 0 0 4em;
+}
+
+
+
+/***************************************
+** MODULE Category
+** Section :: User Preference
+****************************************/
+#usePref{
+  float:left;
+  width:100%;
+  padding:0.5em 0;
+  background:#f4f4f4;
+}
+
+  #usePref h2{
+    float:left;
+    margin:0;
+    padding:0;
+    color:#999;
+    font-family: 'OpenSans Light', sans-serif;
+    width:30%;
+    font-size: 20px;
+  }
+
+    #list-usePref{
+      list-style: none;
+      float:right;
+      margin:0;
+      padding:0;
+    }
+
+      #list-usePref li{
+        float:right;
+        margin:0 1em 0 0;
+        padding:0.25em;
+        font-size:1.25em;
+        font-family: 'OpenSans Light', sans-serif;
+        /*color:#ccc; */
+      }
+
+      #list-usePref li:hover{
+        background:#bfbfbf;
+        color:#fff;
+        cursor:pointer;
+      }
+
+        #list-usePref li.active{
+          background:#bed735;
+          color:#899c1e;
+        }
+
+
+
+
+
+
+/***************************************
+** MODULE
+** Module :: categories
+****************************************/
+
+
+
+
+/***************************************
+** MODULE
+** Module :: Chord viz
+****************************************/
+
+
+#wrapper-viz{
+  position:relative;
+/*  top: 100px;*/
+  /*width: 1100px;
+  height: 1200px;*/
+  display:none;
+  float:left;
+
+}
+
+
+
+
+  #wrapper-viz svg{
+    margin: 0 auto;
+
+  }
+    #wrapper-viz text{
+      border:1px solid red;
+      font-family: 'Helvetica', sans-serif;
+      width:20px;
+      white-space: nowrap;
+      overflow: hidden;
+      display:block;
+      text-overflow:ellipsis;
+    }
+
+
+
+
+
+/***************************************
+** MODULE
+** Module :: Details
+****************************************/
+#wrapper-details{
+ /* background:#bed735;*/
+  display:none;
+ /* background: rgba(190, 215, 53, 0.77); */
+  position:absolute;
+  right:0;
+  top:800px;
+  display:block;
+  width:300px;
+  border-radius:15px;
+}
+
+#list-beersummary{
+      display:none;
+      list-style: none;
+      float:right;
+      margin:10px;
+      padding:5px;
+    }
+
+#beersummary-style, #beersummary-ABV{
+  height:26px;
+  font-style: bold;
+  text-align:left;
+}
+
+#beersummary-name{
+  margin-bottom:10px;
+  font-size:26px;
+  color:white;
+  word-break:break-word;
+
+}
+      
+.highlight{
+  font-size:20px;
+  color:white;
+}
+/***************************************
+** MODULE Styles
+** Section :: Style Selector
+****************************************/
+
+#wrapper-category{
+  background:#fafafa;
+  border-radius:15px;
+  padding:10px;
+  float:left;
+  position:absolute;
+  left:0;
+
+}
+
+
+  #wrapper-category li{
+    text-align: right;
+    width:100%;
+    margin:0;
+  }
+
+
+#styleHead h3{
+  text-align:center;
+  font-size: 1.1em;
+  font-family: 'OpenSans Semi Bold', sans-serif;
+}
+
+  #list-beerstyle{
+    list-style: none;
+    padding:0;
+    /*width:200px; */
+    margin:0;
+  }
+
+    #list-beerstyle li{
+      margin-bottom:10px;
+      float:left;
+      clear:both;
+      text-align: right;
+     /* width:200px;*/
+    }
+
+      /*span*/
+      .beerstyle-name{
+        float:left;
+        width:160px;
+      }
+
+      /*span*/
+      .beerstyle-color{
+        float:left;
+        width:20px;
+        height:20px;
+        background:red;
+        display:block;
+        margin:2px 0 0 1.5em;
+      }
+
+
+#beerviz-legend{
+  height:auto;
+  width:auto;
+  float:left;
+  position:absolute;
+  top: 1400px;
+
+}
+
+#beerviz-legend img{
+  width:370px;
+}
+
+/************************************
+**MODULE STYLES
+:: Module :: credits;
+************************************/
+
+#credits{
+  margin-top:50px;
+  margin:10px;
+  padding:10px;
+
+}
+
+#credits li{
+  list-style:none;
+}
+
+/***************************************
+** MODULE STYLES
+** Module :: Chord styles
+****************************************/
+
+path.arc{
+  cursor:move;
+  fill: #fff;
+}
+
+.node1 {
+  font-size:12px;
+
+  -webkit-transition: all 0.1s ease-in; 
+     -moz-transition: all 0.1s ease-in; 
+       -o-transition: all 0.1s ease-in; 
+          transition: all 0.1s ease-in; 
+
+}
+
+.node1:hover{
+  fill: blue;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.link{
+  fill:none;
+/*  stroke: #bfbfbf;*/
+  stroke-opacity: 0.4;
+  pointer-events:none;
+}
+
+.chordhover .link{
+  stroke:#dfdfdf;
+}
+
+
+.link.source, .link.target{
+  stroke-opacity: 1;
+  stroke-width: 2px;
+}
+
+.node1.target{
+ /* fill: red;
+  stroke: red;*/
+  font-size:20px;
+  border-bottom:1px solid #bada55;
+}
+
+.link.source{
+  stroke: #000;
+}
+
+.link.target{
+  stroke:#000;
+}
+
+
+
+
+
+/***************************************
+** MODULE STYLES
+** Module :: HighCharts
+****************************************/
+.highcharts-container text:last-child{
+  display:none !important;
+}
+
+.highcharts-button{display:none;}
+
+
+/**************************
+** MODULE STYLES
+Module:: Summary Charts;
+***************************/
+#summary{
+  padding:1em 0;
+  float:left;
+  margin:0;
+}
+
+  #summary-charts{
+  display: inline;
+  float: left;
+  width: 100%;
+  }
+
+  #wrapper-summary{
+  width: 98%;
+  height: auto;
+  padding: 0 1% 0 1%;
+  float: left;
+  background: #dfdfdf;
+
+  }
+
+  #wrapper-summary h3{
+    margin-top:-10px;
+    font-size: 14px;
+    text-align:left;
+  }
+
+  #chart1,#chart2,#chart3,#chart4,#chart5{
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  }
+
+  #summary-charts{
+    width:100%;
+    margin:0;
+    padding:5px;
+    list-style:none;
+
+  }
+
+    #summary-charts li{
+    margin:0 1% 0 1%;
+    padding: 0;
+    width: 17%;
+    float: left;
+    overflow: hidden
+  }
+
+
+
+
+
+/**********************************
+** MODULE STYLES
+** Module :: Flower Visualization
+***********************************/
+
+.authors{
+  position: relative;
+}
+
+.diafragma {
+  background: #ffffff;
+  border-radius: 100%;
+  border: 2px solid #fafac8;
+  box-shadow: 0 0 14px 2px #fafa96;
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  margin-left: -25px;
+  margin-top: -25px;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+.diafragma:hover > .hoja {
+  box-shadow: inset 0 14px 0 #fafa00, inset 14px 0 0 #fac800, inset 0 -14px 0 #fa9600, inset -14px 0 0 #fa6400;
+}
+.hoja {
+  border-radius: 100%;
+  box-shadow: inset 0 25px 0 rgba(200, 200, 0, 0.5), inset 25px 0 0 rgba(150, 150, 0, 0.5), inset 0 -25px 0 rgba(200, 100, 0, 0.5), inset -25px 0 0 rgba(250, 250, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: box-shadow 0.5s;
+}
+.giro {
+  transform: rotatez(45deg);
+}
+.text {
+  color: #c8c8c8;
+  position: absolute;
+  text-align: center;
+  font-family: 'OpenSans Light', sans-serif;
+  font-size: 20px;
+  line-height: 100px;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+
+
+
+
+/**************************
+** MODULE FOOTER
+** Module:: Footer
+***************************/
+    #list-authors{
+      list-style:none;
+      margin:0;
+      padding:0;
+      width:100%;
+      float:left;
+    }
+
+      #list-authors li{
+        float:left;
+        width:24%;
+        margin:0 0.5%;
+        float:left;
+        display:block;
+      }
+
+
+      #list-authors .authors{
+        width:100%;
+        float:left;
+        
+        display:block;
+        height:300px;
+        background-repeat: no-repeat;
+      }
+        #authors-divya      {   background-image: url('../img/pict_authors_divya.png');   }
+        #authors-shreyas    {   background-image: url('../img/pict_authors_shreyas.png');   }
+        #authors-sonali     {   background-image: url('../img/pict_authors_sonali.png');   }
+        #authors-evie       {   background-image: url('../img/pict_authors_evie.png');   }
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

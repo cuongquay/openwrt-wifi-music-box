@@ -1,0 +1,20 @@
+<div ng-controller="pageview" ng-init="init()">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="row" ng-repeat="item in panel.rows">
+			<div blog-view-item  ng-model="item" ng-first-item="$first" ng-last-item="$last" ng-odd-item="$odd" ng-even-item="$even" ng-index-item="$index"></div>
+		</div>		
+	</div>
+	<div class="text-center col-sm-12 col-md-12 col-lg-12" ng-if="panel.nbrOfPages">
+		<ul class="pagination">
+			<li ng-class="{disabled: currentPage == 1}"><a href="#" aria-label="First" ng-click="first()">&laquo;</a></li>
+			<li ng-class="{disabled: currentPage == 1}"><a href="#" aria-label="Previous" ng-click="previous()">&lsaquo;</a></li>
+			<li ng-class="{active: index == currentPage}" ng-repeat="index in ranges"><a href="#" ng-click="setCurrentPage(index)">{{index}}</a></li>
+			<li ng-class="{disabled: currentPage == panel.nbrOfPages}"><a href="#" ng-click="next()" aria-label="Next">&rsaquo;</a></li>
+			<li ng-class="{disabled: currentPage == panel.nbrOfPages}"><a href="#" ng-click="last()" aria-label="Last">&raquo;</a></li>
+		</ul>
+		<div class="margin-bottom-5" ng-if="panel.nbrOfRecords == 0"> There is no result found.</div>
+		<div class="margin-bottom-5" ng-if="panel.nbrOfRecords == 1"> There is {{ formatNumber(panel.nbrOfRecords) }} result found in {{ formatNumber(panel.nbrOfPages) }} page</div>
+		<div class="margin-bottom-5" ng-if="panel.nbrOfRecords > 1 && panel.nbrOfPages ==1"> There are {{ formatNumber(panel.nbrOfRecords) }} results found in {{ formatNumber(panel.nbrOfPages) }} page</div>
+		<div class="margin-bottom-5" ng-if="panel.nbrOfRecords > 1 && panel.nbrOfPages >1"> There are {{ formatNumber(panel.nbrOfRecords) }} results found in {{ formatNumber(panel.nbrOfPages) }} pages</div>
+	</div>	
+</div>

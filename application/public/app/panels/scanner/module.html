@@ -1,0 +1,43 @@
+<div ng-controller='scanner' ng-init="init()" style="margin-bottom: 10px" ng-cloak>
+	<div class="row padding-10 padding-top-10 padding-left-0" ng-show="panel.scanmode">
+		<a class="btn btn-small padding-left-0 cbutton cbutton--effect-tamara" style="border-bottom: none;" ng-click="onShowScanner()"><i class="fa fa-search">&nbsp;</i><span style="font-size: 15px;font-weight: bold;">{{ showScanner? 'Hide Scanner' : 'Show Scanner'}}</span></a>
+		<div class="padding-left-0 pull-right"><span>{{ statusText }}</span></div>
+		<div id="id-search-progress-bar" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+	</div>	
+	<div class="row" ng-if="!showScanner">
+		<div ng-if="devices.length" class="superbox col-xs-12 col-sm-12 col-md-12 col-lg-12 animated fadeIn">			
+			<div data-smart-super-box class="superbox-list" ng-repeat="item in devices" ng-class="{ 'selected': item.uid==selectedUid }" ng-click="onSuperboxToggle($event, item)" >
+				<div class="superbox-title text-center">
+					<a ng-href-void=""> <span class="text-align-center">{{ item.name }}</span> </a>
+				</div>
+				<div class="superbox-img">
+					<img style="padding: 25px 15px 5px 15px" ng-src="{{ item.avatar }}" title="{{ item.title }}" src="app/panels/scanner/no-preview.jpg">
+				</div>
+			</div>
+			<div class="superbox-float"></div>
+		</div>
+		<div ng-if="!devices.length" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<h5 class="text-center">Click on <a class="link" style="border-bottom: dotted 1px;" ng-href-void="" ng-click="onShowScanner($event)">Show Scanner</a> button and start to discover new devices or try our <a class="link" style="border-bottom: dotted 1px;" ng-href-void="" ng-click="onDemoMode($event)">Demo</a> mode.</h5>
+		</div>
+	</div>
+	<div class="row smart-form" ng-if="panel.scanmode && showScanner">		
+		<fieldset class="animated fadeIn col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			<form enctype="multipart/form-data" method="post" name="submitContentForm" class="ng-pristine ng-invalid ng-invalid-required">
+				<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<label class="label font-sm">Scanning IP Range</label>
+					<label class="input">
+						<input type="text" class="input-xs ng-pristine ng-animate ng-invalid ng-invalid-required" ng-model="validAddr" required ng-model-onblur ng-change="onIpChange(validAddr)" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\s{*}">
+					</label>
+				</section>
+				<section class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<label class="label">&nbsp;</label>
+					<label class="label"> <a ng-click="onScanDevices($event, true)" ng-href-void="" class="cbutton cbutton--effect-tamara btn-well button"><span class="padding-10">Discover</span></a> </label>
+				</section>
+				<section class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<label class="label">&nbsp;</label>
+					<label class="label"> <a ng-click="onWiFiSettings($event, true)" ng-href-void="" class="cbutton cbutton--effect-tamara btn-well button"><span class="padding-10">Setup WiFi</span></a> </label>
+				</section>
+			</form>
+		</fieldset>
+	</div>	
+</div>

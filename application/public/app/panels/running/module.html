@@ -1,0 +1,67 @@
+<div ng-controller='running' ng-init="init()" ng-class="panel.class" >	
+	<div class="knob-container" ng-show="isVolumeControl">
+		<!-- OUTER SHADOW -->
+		<div class="de">
+			<!-- TEXT -->
+			<div class="den">
+				<!-- LINE -->
+				<hr class="line">
+				<hr class="line">
+				<hr class="line">
+				<!-- SWITCH -->
+				<div class="switch">
+					<!-- TEXT -->
+					<label for="switch_off"><span>OFF</span></label>
+					<label for="switch_1"><span>1</span></label>
+					<label for="switch_2"><span>2</span></label>
+					<label for="switch_3"><span>3</span></label>
+					<label for="switch_4"><span>4</span></label>
+					<label for="switch_5"><span>5</span></label>
+					<!-- INPUT -->
+					<input id="switch_off" name="switch" ng-checked="device.volume==0" type="radio" ng-click="onVolumeSet(0)">
+					<input id="switch_1" name="switch" ng-checked="device.volume>0 && device.volume<=25" type="radio" ng-click="onVolumeSet(20)">
+					<input id="switch_2" name="switch" ng-checked="device.volume>25 && device.volume<=45" type="radio" ng-click="onVolumeSet(40)">
+					<input id="switch_3" name="switch" ng-checked="device.volume>45 && device.volume<=65" type="radio" ng-click="onVolumeSet(60)">
+					<input id="switch_4" name="switch" ng-checked="device.volume>65 && device.volume<=85" type="radio" ng-click="onVolumeSet(80)">
+					<input id="switch_5" name="switch" ng-checked="device.volume>85 && device.volume<=100" type="radio" ng-click="onVolumeSet(100)">
+					<!-- LIGHT -->
+					<div class="light">
+						<span></span>
+					</div>
+					<!-- DOT -->
+					<div class="dot">
+						<span></span>
+					</div>
+					<!-- CENTER -->
+					<div class="dene">
+						<div class="denem">
+							<div class="deneme"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid track-cover" ng-if="ready" ng-class="{ 'deactive': isVolumeControl }">
+		<div class="track-running animated slideInRight" data-ng-style="getBackgroundStyle()" ng-click="onBackGroundClick()">
+			<div class="track-username" ng-bind-html="selectedItem.user.username"></div>
+			<div class="track-title" ng-bind-html="selectedItem.title"></div>
+			<label class="track-genre" ng-bind-html="selectedItem.genre"></label>
+			<div id="id-player-running-screen" style="width: 100%; height: 200px"></div>
+		</div>
+	</div>
+	<div class="player-controls">
+		<a ng-href-void="" ng-click="onPrevClick($event, selectedItem)" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border-bottom: none">
+		<button class="cbutton cbutton--effect-tamara pull-left">
+			<i class="cbutton__icon fa fa-fw fa-step-backward"></i>
+		</button></a>
+		<a ng-href-void="" ng-click="onStartClick($event, selectedItem)" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border-bottom: none; text-align: center">
+		<button class="cbutton cbutton--effect-tamara">
+			<i class="fa fa-fw" ng-class="{ 'fa-play': !isPlaying, 'fa-stop': isPlaying}"></i>
+		</button></a>
+		<a ng-href-void="" ng-click="onNextClick($event, selectedItem)" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border-bottom: none">
+		<button class="cbutton cbutton--effect-tamara pull-right">
+			<i class="fa fa-fw fa-step-forward"></i>
+		</button></a>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<div ng-controller='playlist' ng-init="init()">
+	<div class="row-fluid" ng-if="ready">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 animated fadeIn">
+			<div ng-repeat="item in items | orderBy:'track_count':true | limitTo:10">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-left-0 padding-right-0 padding-bottom-0 padding-top-0">
+					<a ng-href-void="" ng-click="onPlaylistClick($event, item)" ng-class="{ 'active' : item.active }"> <div class="list-overlay-button list"></div>
+						<div ng-class="{ 'track-artwork': item.artwork_url, 'track-avatar': !item.artwork_url && item.user }" class="padding-left-0 padding-right-0" data-ng-style="{ 'background-image':'url({{ item.artwork_url || item.user.avatar_url }})' }">
+						<div class="track-username">
+							{{ item.user.username }}
+						</div>
+						<div class="track-title">
+							{{ item.title }}
+						</div> <label class="track-genre">{{ item.genre }}</label>
+					</div></a>
+					<span class="pull-right font-xs padding-5 padding-bottom-0 padding-top-0">{{ item.duration.toHHMMSS() }}</span>
+					<span class="pull-left font-xs padding-5 padding-bottom-0 padding-top-0"><i class="fa fa-play font-xs"></i>&nbsp;{{ item.track_count.numberWithCommas() }} </span><span>{{ item.track_count > 1? "tracks" : "track"}}</span>
+				</div>
+			</div>
+			<h5 ng-if="items && !items.length" class="error-box"><span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">There is no playlist. Click <a ng-click="onPlaylistClick($event)" ng-href-void="" style="border-bottom: dotted 1px;" class="link">Here</a> to see the other tracks. </span></h5>
+		</div>
+	</div>
+</div>

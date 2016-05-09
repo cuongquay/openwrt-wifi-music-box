@@ -1,0 +1,63 @@
+.axis.labeled text {
+  opacity: 1;
+}
+.axis.hours text {
+  fill: #ccc;
+  font-size: 1rem;
+  font-family: "FontAwesome";
+}
+.axis.days text {
+  fill: #999;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+.axis.days path, .axis.days line {
+  stroke: #ccc;
+}
+.axis.days.labeled path, .axis.days.labeled line {
+  stroke: none;
+}
+.axis .nighttime {
+  fill: #20638f;
+  fill-opacity: 0.25;
+}
+.axis .daytime {
+  fill: #f1c40f;
+  fill-opacity: 0.15;
+}
+div.d3js-journals {
+	font-family: Arial, sans-serif;
+	font-size: 10px;
+}
+.axis path, .axis line {
+	fill: none;
+	stroke: #b6b6b6;
+	shape-rendering: crispEdges;
+}
+.tick line {
+	fill: none;
+	stroke: #b6b6b6;
+}
+.axis line {
+	fill: none;
+	stroke: #b6b6b6;
+	shape-rendering: crispEdges;
+}
+.tick text {
+	fill: #999;
+}
+g.journal.active {
+	cursor: pointer;
+}
+text.label {
+	font-size: 12px;
+	font-weight: bold;
+	cursor: pointer;
+}
+text.value {
+	font-size: 12px;
+	font-weight: bold;
+}
+.tick line {
+	opacity: 0.3;
+}

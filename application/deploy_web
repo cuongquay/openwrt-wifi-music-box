@@ -1,0 +1,3 @@
+rm -f www.tar.gz assets.tar.gz
+tar czfv assets.tar.gz assets/
+tar czfv www.tar.gz www/

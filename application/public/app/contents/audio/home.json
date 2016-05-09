@@ -1,0 +1,30 @@
+{
+	"name": "default",
+	"rows": [
+		{
+			"span": 12,
+			"type": "container",
+			"panels": [
+				{
+					"type": "navigator",
+					"title": "{@USER}'s",
+					"shuffer": "Shuffer",
+					"repeat": "Repeat",
+					"panels": [
+						{
+							"type": "stream",
+							"title": "Now Playing",
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"partition": 5,
+							"limit": 40
+						}, {
+							"type": "running",
+							"title": "Running",
+							"class": "col-sm-12 col-md-12 col-lg-12"
+						}
+					]
+				}
+			]
+		}
+	]
+}

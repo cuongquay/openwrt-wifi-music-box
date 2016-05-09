@@ -1,0 +1,21 @@
+<div ng-controller="sequences" class="visited-website-chart panel-content-wrapper" ng-init="init()">
+    <div>
+        <span ng-show="!panel.isUser" class="right-inner-addon" data-placeholder="Email" data-search="search" search-box></span>
+    </div>
+
+    <div ng-show="loading" class="loading ng-hide">
+        <i class="icon-spinner icon-spin"></i>
+    </div>
+
+    <div ng-hide="loading">
+        <div id="sunburn-main">
+            <div id="sunburn-sequence"></div>
+            <div id="sunburn-chart">
+            </div>
+        </div>
+        <div id="sunburn-sidebar">
+            <input type="checkbox" id="sunburn-togglelegend" checked> Legend<br/>
+            <div id="sunburn-legend"></div>
+        </div>
+    </div>
+</div>

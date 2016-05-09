@@ -1,0 +1,10 @@
+.network-path {
+  fill: #ddd;
+  fill-opacity: .8;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+line {
+  stroke: #ffcccc;
+}

@@ -1,0 +1,409 @@
+[
+    {
+        "style": "MyGroup",
+        "name": "MyGroup.Embedded",
+        "color": 15,
+        "avg_rating": 4.6,
+        "related": [
+            "Bagneux.ModoloJérome",
+            "Bagneux.Paul",
+            "Bagneux.Yves",
+            "Bagneux.Bernard",
+            "Bagneux.Christophe",
+            "Bagneux.Hicham"
+        ],
+        "style_color": 7,
+        "ABV": 8,
+        "type": "Light",
+        "id": "AR715",
+        "size": 1914
+    },
+    {
+        "style": "MyGroup",
+        "name": "MyGroup.Mobile",
+        "color": 15,
+        "avg_rating": 4.5,
+        "related": [
+            "Hanoi.CuongDD",
+            "Hanoi.AnhBV",
+            "Hanoi.KienDN",
+            "Hanoi.TrungVD",
+            "Hanoi.DongNQ",
+            "Bagneux.ModoloJérome",
+            "Bagneux.Mohamed",
+            "Bagneux.Romuald",
+            "Bagneux.Sebastien"
+        ],
+        "style_color": 7,
+        "ABV": 10,
+        "type": "Light",
+        "id": "AR716",
+        "size": 1696
+    },
+    {
+        "style": "MyGroup",
+        "name": "MyGroup.BigData",
+        "color": 15,
+        "avg_rating": 4.2,
+        "related": [
+             "Hanoi.CuongDD",
+             "Hanoi.HungBC",
+             "Hanoi.ThamNT",
+             "Hanoi.AnPV",
+             "Hanoi.KhoiMK",
+             "Hanoi.ThangPV",
+             "Hanoi.DongNQ",
+             "Bagneux.ModoloJérome",
+             "Bagneux.Hugues"
+        ],
+        "style_color": 7,
+        "ABV": 9,
+        "type": "Light",
+        "id": "AR717",
+        "size": 1526
+    },
+    {
+        "style": "MyGroup",
+        "name": "MyGroup.GrowthHacking",
+        "color": 15,
+        "avg_rating": 4.2,
+        "related": [
+            "Hanoi.CuongDD",
+             "Hanoi.HungBC",
+             "Hanoi.ThamNT",
+             "Hanoi.AnPV",
+             "Hanoi.KhoiMK",
+             "Hanoi.ThangPV",
+             "Hanoi.DongNQ",
+             "Bagneux.ModoloJérome"
+        ],
+        "style_color": 7,
+        "ABV": 8,
+        "type": "Light",
+        "id": "AR718",
+        "size": 1389
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.CuongDD",
+        "color": 14,
+        "avg_rating": 4,
+        "related": [
+            "MyGroup.Mobile",
+            "MyGroup.BigData",
+            "MyGroup.GrowthHacking",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 28,
+        "ABV": 8.2,
+        "type": "Light",
+        "id": "AR725",
+        "size": 1952
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.HungBC",
+        "color": 14,
+        "avg_rating": 4.2,
+        "related": [
+            "MyGroup.BigData",
+            "MyGroup.GrowthHacking",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 28,
+        "ABV": 8,
+        "type": "Light",
+        "id": "AR726",
+        "size": 1429
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.ThamNT",
+        "color": 14,
+        "avg_rating": 4,
+        "related": [
+            "MyGroup.BigData",
+            "MyGroup.GrowthHacking",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 28,
+        "ABV": 8.8,
+        "type": "Light",
+        "id": "AR727",
+        "size": 1352
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.AnPV",
+        "color": 14,
+        "avg_rating": 4.5,
+        "related": [
+        	"MyGroup.BigData",
+            "MyGroup.GrowthHacking",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 28,
+        "ABV": 8,
+        "type": "Light",
+        "id": "AR728",
+        "size": 1249
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.KhoiMK",
+        "color": 14,
+        "avg_rating": 4.2,
+        "related": [
+            "MyGroup.BigData",
+            "MyGroup.GrowthHacking",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 28,
+        "ABV": 7.9,
+        "type": "Light",
+        "id": "AR729",
+        "size": 1160
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.ThangPV",
+        "color": 14,
+        "avg_rating": 4,
+        "related": [
+            "MyGroup.BigData",
+            "MyGroup.GrowthHacking",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 28,
+        "ABV": 7,
+        "type": "Light",
+        "id": "AR730",
+        "size": 1157
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.DongNQ",
+        "color": 14,
+        "avg_rating": 4.1,
+        "related": [
+            "MyGroup.BigData",
+            "MyGroup.GrowthHacking",
+            "MyGroup.Mobile",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 28,
+        "ABV": 8,
+        "type": "Light",
+        "id": "AR731",
+        "size": 1097
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.AnhBV",
+        "color": 14,
+        "avg_rating": 3.9,
+        "related": [
+            "MyGroup.Mobile",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 28,
+        "ABV": 7.7,
+        "type": "Light",
+        "id": "AR732",
+        "size": 934
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.KienDN",
+        "color": 14,
+        "avg_rating": 4.1,
+        "related": [
+             "MyGroup.Mobile"
+        ],
+        "style_color": 28,
+        "ABV": 8.2,
+        "type": "Light",
+        "id": "AR733",
+        "size": 875
+    },
+    {
+        "style": "Hanoi",
+        "name": "Hanoi.TrungVD",
+        "color": 14,
+        "avg_rating": 3.9,
+        "related": [
+        	 "MyGroup.Mobile"
+        ],
+        "style_color": 28,
+        "ABV": 7.5,
+        "type": "Light",
+        "id": "AR734",
+        "size": 852
+    },
+    {
+        "style": "Bagneux",
+        "name": "Bagneux.ModoloJérome",
+        "color": 14,
+        "avg_rating": 4.2,
+        "related": [     
+        	"Hanoi.CuongDD", 
+        	"Hanoi.HungBC",
+        	"Hanoi.AnPV",
+        	"Hanoi.DongNQ",
+        	"Hanoi.ThangPV",     
+        	"Hanoi.KhoiMK",
+        	"Hanoi.ThamNT",
+        	"MyGroup.Mobile",
+            "MyGroup.BigData",
+            "MyGroup.GrowthHacking",
+            "MyGroup.Embedded",
+            "Bagneux.Hugues",
+            "Bagneux.Romuald",
+            "Bagneux.Mohamed",
+            "Bagneux.Hicham",
+            "Bagneux.Sebastien",
+            "Bagneux.ModoloJérome",
+            "Bagneux.ModoloJérome"
+        ],
+        "style_color": 13,
+        "ABV": 6.9,
+        "type": "Medium",
+        "id": "AR775",
+        "size": 944
+    },
+    {
+        "style": "Bagneux",
+        "name": "Bagneux.Hugues",
+        "color": 14,
+        "avg_rating": 3.5,
+        "related": [    
+        	"Bagneux.ModoloJérome",
+        	 "MyGroup.BigData"        
+        ],
+        "style_color": 13,
+        "ABV": 6.6,
+        "type": "Medium",
+        "id": "AR776",
+        "size": 504
+    },
+    {
+        "style": "Bagneux",
+        "name": "Bagneux.Romuald",
+        "color": 14,
+        "avg_rating": 4,
+        "related": [
+            "Bagneux.ModoloJérome",
+            "MyGroup.Mobile"
+        ],
+        "style_color": 13,
+        "ABV": 6.5,
+        "type": "Medium",
+        "id": "AR777",
+        "size": 382
+    },
+     {
+        "style": "Bagneux",
+        "name": "Bagneux.Mohamed",
+        "color": 14,
+        "avg_rating": 4,
+        "related": [
+           "Bagneux.ModoloJérome",
+           "MyGroup.Mobile"
+        ],
+        "style_color": 13,
+        "ABV": 6.2,
+        "type": "Medium",
+        "id": "AR778",
+        "size": 356
+    },
+    {
+        "style": "Bagneux",
+        "name": "Bagneux.Hicham",
+        "color": 14,
+        "avg_rating": 4,
+        "related": [
+           "Bagneux.ModoloJérome",
+           "MyGroup.Embedded"
+        ],
+        "style_color": 13,
+        "ABV": 5.2,
+        "type": "Medium",
+        "id": "AR779",
+        "size": 312
+    },
+     {
+        "style": "Bagneux",
+        "name": "Bagneux.Sebastien",
+        "color": 14,
+        "avg_rating": 3.4,
+        "related": [
+           "Bagneux.ModoloJérome",
+			"MyGroup.Mobile"           
+        ],
+        "style_color": 13,
+        "ABV": 5.1,
+        "type": "Medium",
+        "id": "AR780",
+        "size": 285
+    },
+    {
+        "style": "Bagneux",
+        "name": "Bagneux.Yves",
+        "color": 14,
+        "avg_rating": 3.8,
+        "related": [
+          "Bagneux.ModoloJérome",
+          "MyGroup.Embedded"
+        ],
+        "style_color": 13,
+        "ABV": 5.9,
+        "type": "Medium",
+        "id": "AR781",
+        "size": 262
+    },
+    {
+        "style": "Bagneux",
+        "name": "Bagneux.Christophe",
+        "color": 14,
+        "avg_rating": 3.8,
+        "related": [
+         "Bagneux.ModoloJérome",
+         "MyGroup.Embedded"
+        ],
+        "style_color": 13,
+        "ABV": 7.2,
+        "type": "Medium",
+        "id": "AR782",
+        "size": 241
+    },
+    {
+        "style": "Bagneux",
+        "name": "Bagneux.Bernard",
+        "color": 14,
+        "avg_rating": 3.9,
+        "related": [
+           "Bagneux.ModoloJérome",
+           "MyGroup.Embedded"
+        ],
+        "style_color": 13,
+        "ABV": 7,
+        "type": "Medium",
+        "id": "AR783",
+        "size": 208
+    },
+    {
+        "style": "Bagneux",
+        "name": "Bagneux.Paul",
+        "color": 14,
+        "avg_rating": 3.8,
+        "related": [
+        	"Bagneux.ModoloJérome",
+        	"MyGroup.Embedded"
+        ],
+        "style_color": 13,
+        "ABV": 5.3,
+        "type": "Medium",
+        "id": "AR784",
+        "size": 203
+    }
+]

@@ -1,0 +1,53 @@
+<h1 id="logo">
+	<a href="#v1/audio/home" ng-bind-html="title"></a>	
+</h1>
+<nav id="nav">
+	<ul>
+		<li>
+			<a href="#v1/audio/explore">Explore</a>
+		</li>
+		<li>
+			<a href="#v1/audio/stream">Stream</a>			
+		</li>
+		<li>
+			<a href="#v1/audio/follow">People</a>			
+		</li>
+		<li>
+			<a href="#v1/audio/alarm">Alarms</a>
+		</li>
+		<li>
+			<a ng-href-void>Devices</a>
+			<ul ng-if="devices.length">
+				<li ng-repeat="device in devices">
+					<a href="#v1/audio/home/{{ device.uid }}" ng-bind-html="device.name"></a>
+				</li>
+				<li><a href="#v1/audio/scanner">Search more...</a></li>
+			</ul>
+		</li>		
+		<li>
+			<a ng-href-void>Information</a>
+			<ul >
+				<li>
+					<a href="#v1/audio/terms">Terms & Conditions</a>
+				</li>
+				<li>
+					<a href="#v1/audio/comment">Feedback to Us</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a ng-href-void class="button special" alt="SoundCloud" ng-bind-html="userInfo.username">SoundCloud</a>
+			<ul>				
+				<li>
+					<a ng-href="{{ userInfo.permalink_url }}" target="_blank">My Profile</a>
+				</li>
+				<li>
+					<a href="https://soundcloud.com/you/sets" target="_blank">Playlists</a>
+				</li>								
+				<li>
+					<a href="#v1/audio/logout">Logout</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</nav>

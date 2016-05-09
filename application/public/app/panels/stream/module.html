@@ -1,0 +1,26 @@
+<div ng-controller='stream' ng-init="init()" ng-class="panel.class" >
+	<div class="row-fluid" ng-if="ready">
+		<div ng-if="!error && tracks && tracks.length" class="track-list col-xs-12 col-sm-12 col-md-12 col-lg-12 animated fadeIn">
+			<div class="playing-track col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-left-0 padding-right-0">
+				<ul class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-left-0 padding-right-0">
+					<li ng-class="{ 'active' : playingItem.id==item.id }" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-left-0 padding-right-0" ng-repeat="item in tracks  | orderBy:'playback_count':true" style="list-style: none;" ng-class-even="'even'" ng-class-odd="'odd'" >
+						<a ng-href-void="" ng-click="onTrackClick($event, item)"><div class="list-overlay-button start"></div>
+						<div ng-class="{ 'track-artwork': item.artwork_url, 'track-avatar': !item.artwork_url && item.user }" class="padding-left-0 padding-right-0" data-ng-style="{ 'background-image':'url({{ item.artwork_url || item.user.avatar_url }})' }">
+							<div class="track-username">
+								{{ item.user.username }}
+							</div>
+							<div class="track-title">
+								{{ item.title }}
+							</div>
+							<label class="track-genre">{{ item.genre }}</label>
+						</div></a>
+						<span class="pull-right font-xs padding-5 padding-bottom-0 padding-top-0">{{ item.duration.toHHMMSS() }}</span>
+						<span class="pull-left font-xs padding-5 padding-bottom-0 padding-top-0"><i class="fa fa-play font-xs"></i>&nbsp;{{ item.playback_count.numberWithCommas() }}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<h5 ng-if="!error && tracks && !tracks.length" class="error-box"><span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">Please consolidate some tracks from the <a href="#v1/audio/explore" style="border-bottom: dotted 1px;" class="link">Trend Music</a>, the playlists of <a href="#v1/audio/follow" style="border-bottom: dotted 1px;" class="link">People</a> you are following or your <a class="link" style="border-bottom: dotted 1px;" href="#v1/audio/stream">Stream</a> and try again.</span></h5>
+		<h5 ng-if="error" class="error-box"><span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">The device is not ready. Please check the power plug and <a ng-href-void="" ng-click="onReload()" style="border-bottom: dotted 1px;" class="link">Reload</a> again.</span></h5>
+	</div>	
+</div>

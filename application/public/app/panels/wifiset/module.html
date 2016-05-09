@@ -1,0 +1,24 @@
+<div ng-controller='wifiset' ng-init="init()" style="margin-bottom: 10px" ng-cloak>	
+	<div class="row smart-form">		
+		<fieldset class="animated fadeIn col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			<form enctype="multipart/form-data" method="post" name="submitContentForm" class="ng-pristine ng-invalid ng-invalid-required">
+				<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<label class="label font-sm">SSID</label>
+					<label class="input">
+						<input type="text" class="input-xs ng-pristine ng-animate ng-invalid ng-invalid-required" ng-model="wifiSSID" required>
+					</label>
+				</section>
+				<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<label class="label font-sm">Password</label>
+					<label class="input">
+						<input type="text" class="input-xs ng-pristine ng-animate ng-invalid ng-invalid-required" ng-model="wifiPass" required>
+					</label>
+				</section>
+				<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<label class="label">&nbsp;</label>
+					<label class="label"> <a ng-click="onWiFiSet($event)" ng-href-void="" class="btn-well button"><span class="padding-10">Setup</span></a> </label>
+				</section>
+			</form>
+		</fieldset>
+	</div>	
+</div>

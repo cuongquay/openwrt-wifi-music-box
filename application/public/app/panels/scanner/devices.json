@@ -1,0 +1,19 @@
+[
+	{
+		"name": "WiFi Audio System",
+		"service": "airplay",
+		"location": "//wifioner.com/api/",
+		"uid": "5c8d8129-9028-419b-a8f7-8981562dffde",
+		"avatar": "images/speaker-double.png",
+		"volume": 80,
+		"mode": 0
+	}, {
+		"name": "WiFi HiFi System",
+		"service": "airplay",
+		"location": "//wifioner.com/api/",
+		"uid": "6c8d8129-9028-419b-a8f7-8981562dffde",
+		"avatar": "images/speaker-front-both.png",
+		"volume": 60,
+		"mode": 0
+	}
+]

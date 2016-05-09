@@ -1,0 +1,21 @@
+<div ng-controller='search' ng-init="init()">
+	<div class="row-fluid" ng-if="ready">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 animated fadeIn">
+			<div ng-repeat="item in items track by $index | orderBy:'playback_count':true">
+				<div ng-if="item.kind=='track'" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-left-0 padding-right-0 padding-bottom-0 padding-top-0">
+					<a ng-href-void="" ng-click="onTrackClick($event, item)" ng-class="{ 'active' : item.active }"> <div class="list-overlay-button add"></div>
+					<div ng-class="{ 'track-artwork': item.artwork_url, 'track-avatar': !item.artwork_url && item.user }" class="padding-left-0 padding-right-0" data-ng-style="{ 'background-image':'url({{ item.artwork_url || item.user.avatar_url }})' }">						
+						<div class="track-username">
+							{{ item.user.username }}
+						</div>
+						<div class="track-title">
+							{{ item.title }}
+						</div> <label class="track-genre">{{ item.genre }}</label>
+					</div></a>
+					<span class="pull-right font-xs padding-5 padding-bottom-0 padding-top-0">{{ item.duration.toHHMMSS() }}</span>
+					<span class="pull-left font-xs padding-5 padding-bottom-0 padding-top-0"><i class="fa fa-play font-xs"></i>&nbsp;{{ item.playback_count.numberWithCommas() }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

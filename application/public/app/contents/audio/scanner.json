@@ -1,0 +1,30 @@
+{
+	"name": "default",
+	"rows": [
+		{
+			"span": 12,
+			"type": "container",
+			"panels": [
+				{
+					"type": "navigator",
+					"title": "Settings",
+					"disabled" : true,
+					"panels": [
+						{
+							"type": "scanner",
+							"title": "Discovery",				
+							"class": "col-sm-12 col-md-12 col-lg-12",
+							"scanmode": true,
+							"start": 2,
+							"end": 254
+						}, {
+							"type": "wifiset",
+							"title": "Setup WiFi",
+							"class": "col-sm-12 col-md-12 col-lg-12"
+						}
+					]
+				}
+			]
+		}
+	]
+}

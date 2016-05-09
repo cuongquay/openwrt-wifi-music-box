@@ -1,0 +1,33 @@
+if [[ -d "/var/www/go/" ]]; then
+sudo rm -rf /var/www/go/
+fi
+sudo tar zfvx /root/go.tar.gz
+sudo mv go/ /var/www/
+sudo restorecon /var/www/go/ -R
+sudo chown root:root /var/www/go/ -R
+
+OAUTH2_AUTH="https://soundcloud.com/connect"
+OAUTH2_TOKEN="https://api.soundcloud.com/oauth2/token"
+OAUTH2_CALLBACK="http://wifioner.com/oauth2/callback"
+
+APPS_DOMAIN="wifioner.com"
+APPS_CLIENT_ID="8da88609677ddc6b94b7cfbaba6884e7"
+APPS_CLIENT_SECRET="3ead119ca857fc2388c48930eb0007c7"
+APPS_COOKIES="488d3a94-3665-4696-85bb-9635c4a29698"
+
+UPSTREAM_URLS="http://127.0.0.1:8080/"
+
+sudo cp /var/www/go/etc/sysconfig/oauth2_proxy.default /var/www/go/etc/sysconfig/oauth2_proxy
+sudo sed -i "s/_APPS_DOMAIN_/${APPS_DOMAIN}/g" /var/www/go/etc/sysconfig/oauth2_proxy
+sudo sed -i "s/_APPS_CLIENT_ID_/${APPS_CLIENT_ID}/g" /var/www/go/etc/sysconfig/oauth2_proxy
+sudo sed -i "s/_APPS_CLIENT_SECRET_/${APPS_CLIENT_SECRET}/g" /var/www/go/etc/sysconfig/oauth2_proxy
+sudo sed -i "s/_APPS_COOKIES_/${APPS_COOKIES}/g" /var/www/go/etc/sysconfig/oauth2_proxy
+
+sudo sed -i "s;_OAUTH2_AUTH_;${OAUTH2_AUTH};g" /var/www/go/etc/sysconfig/oauth2_proxy
+sudo sed -i "s;_OAUTH2_TOKEN_;${OAUTH2_TOKEN};g" /var/www/go/etc/sysconfig/oauth2_proxy
+sudo sed -i "s;_OAUTH2_CALLBACK_;${OAUTH2_CALLBACK};g" /var/www/go/etc/sysconfig/oauth2_proxy
+
+sudo sed -i "s;_UPSTREAM_URLS_;${UPSTREAM_URLS};g" /var/www/go/etc/sysconfig/oauth2_proxy
+
+sudo chmod +x /var/www/go/install
+sudo /var/www/go/install

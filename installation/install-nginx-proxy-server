@@ -1,0 +1,133 @@
+#!/bin/sh
+NGINX_VERSION=nginx-1.7.4
+NGINX_FORCE=0
+
+function usage()
+{
+    echo "NGINX installation shell script helper"
+    echo ""
+    echo "./install.sh --version=nginx-1.7.4 --force=1"
+    echo "  -h --help"
+    echo "  --version=$NGINX_VERSION"
+    echo "  --force: Overide the current installation"
+    echo ""
+}
+
+while [ "$1" != "" ]; do
+    PARAM=`echo $1 | awk -F= '{print $1}'`
+    VALUE=`echo $1 | awk -F= '{print $2}'`
+    case $PARAM in
+        -h | --help)
+            usage
+            exit
+            ;;
+        --version)
+            NGINX_VERSION=$VALUE
+            ;;
+        --force)
+            NGINX_FORCE=$VALUE
+            ;;
+        *)
+            usage
+            exit 1
+            ;;
+    esac
+    shift
+done
+
+
+echo "Updating repository..."
+git pull
+
+if [[ -z "$NGINX_VERSION" ]]
+then
+   echo ">>> No specific version of nginx has been placed. Ex: nginx-1.6.0"
+   exit
+fi
+
+service nginx status | grep "running"  >/dev/null
+SRV_NGINX_RUNNING=$?
+
+if [ SRV_NGINX_RUNNING -eq 0 ]
+then
+   service nginx stop
+fi
+
+if [ [ -f "/etc/init.d/nginx" ] && [ $NGINX_FORCE -eq 0 ] ]
+then
+    echo "NGINX has already installed. Restarting the services..."
+else
+    echo "Start installing $NGINX_VERSION ..."
+
+    if [[ ! -f $(readlink -f $NGINX_VERSION.tar.gz) ]];
+    then
+	    yum install wget -y
+	    wget http://nginx.org/download/$NGINX_VERSION.tar.gz
+	    if [[ ! -f $(readlink -f $NGINX_VERSION.tar.gz) ]];
+	    then
+		    echo "Can't download from http://nginx.org/download/$NGINX_VERSION.tar.gz"
+		    exit
+	    else
+		    tar zfvx $NGINX_VERSION.tar.gz
+	    fi
+    fi
+
+    cd $NGINX_VERSION/
+    echo "Installing dependancies..."
+
+    wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+    rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
+    
+    yum install gcc-c++ pcre-devel zlib-devel make wget openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel gperftools-devel -y
+    
+    git clone https://github.com/kvspb/nginx-auth-ldap.git
+    yum install openldap-devel -y
+
+    echo "Configuring nginx build environment..."
+    ./configure \
+    --user=nginx                          \
+    --group=nginx                         \
+    --prefix=/etc/nginx                   \
+    --sbin-path=/usr/sbin/nginx           \
+    --conf-path=/etc/nginx/nginx.conf     \
+    --pid-path=/var/run/nginx.pid         \
+    --lock-path=/var/run/nginx.lock       \
+    --error-log-path=/var/log/nginx/error.log \
+    --http-log-path=/var/log/nginx/access.log \
+    --with-http_gzip_static_module        \
+    --with-http_sub_module        			\
+    --with-http_addition_module        \
+    --with-http_stub_status_module        \
+    --with-http_ssl_module                \
+    --with-pcre                           \
+    --with-file-aio                       \
+    --with-http_realip_module             \
+    --without-http_scgi_module            \
+    --without-http_uwsgi_module           \
+    --add-module=./nginx-auth-ldap
+    
+    make 
+    make install
+    
+    cd ..
+
+    #cp -rf ./certs /etc/nginx/
+    cp -f ./nginx.conf /etc/nginx/
+    mkdir -p /etc/nginx/conf.d/
+    cp -f ./conf.d/* /etc/nginx/conf.d/
+    cp -f ./init.d/nginx /etc/init.d/
+    
+    chmod +x /etc/init.d/nginx
+    
+    chkconfig --add nginx
+    chkconfig nginx on
+    
+    useradd nginx
+    groups nginx
+
+fi
+
+service nginx restart
+
+rm -Rf $NGINX_VERSION*

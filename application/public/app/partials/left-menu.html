@@ -1,0 +1,12 @@
+<div data-action="navList" data-args="nav">
+	<nav>
+		<a class="link depth-0" href="#v1/audio/home"> <span class="indent-0"></span>Explore</a>
+		<a class="link depth-0" href="#v1/audio/stream"> <span class="indent-0"></span>Stream</a>
+		<a class="link depth-0" href="#v1/audio/scanner"> <span class="indent-0"></span>Devices</a>
+		<a class="link depth-1" ng-repeat="device in devices" href="#v1/audio/home/{{ device.uid }}"> <span class="indent-1"></span>{{ device.name }}</a>		
+		<a class="link depth-0"><span class="indent-0"></span>{{ userInfo.username }}</a>
+		<a class="link depth-1" ng-href="{{ userInfo.permalink_url }}" target="_blank"> <span class="indent-1"></span>My Profile</a>
+		<a class="link depth-1" href="https://soundcloud.com/you/sets" target="_blank"> <span class="indent-1"></span>Playlists</a>
+		<a class="link depth-1" href="#v1/audio/logout"> <span class="indent-1"></span>Logout</a>
+	</nav>
+</div>
