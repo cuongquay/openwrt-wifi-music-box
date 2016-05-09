@@ -13,7 +13,12 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 
 *After flashing TL-MR3040 by OpenWRT firmware, SSH into the system and modify the uhttpd configuration as follows:*
 
-- Open file with VIM editor root@OpenWrt:~# vi /etc/config/uhttpd
+- Open file with VIM editor
+ 
+```javascript
+	root@OpenWrt:~# vi /etc/config/uhttpd
+```
+
 - Update the configuration with the following lines
  
 ```javascript
@@ -22,13 +27,19 @@ Have you ever heard about Sonos Sound System? This project aims to build a wifi 
 ```    
 
 - Copy the files from [openwrt/uhttpd/](https://github.com/cuongquay/project-wifi-music-box/tree/master/openwrt/uhttpd) into /www/api/ of the TL-MR3020 system.
-- Restart the uhttpd server root@OpenWrt:~# /etc/init.d/uhttpd restart to apply the configuration
+- Restart the uhttpd server 
+
+```javascript
+	root@OpenWrt:~# /etc/init.d/uhttpd restart to apply the configuration
+```
 
 **Usage**
 
 *You can find the MP3 streamming server source from http://dir.xiph.org/by_format/MP3*
 
-root@OpenWrt:~# wget -qO- http://198.50.250.195:7064/RADIOSATELLITE | madplay - -v --tty-control
+```javascript
+	root@OpenWrt:~# wget -qO- http://198.50.250.195:7064/RADIOSATELLITE | madplay - -v --tty-control
+```
  
 Or play a MP3 stream through REST API interface
 
